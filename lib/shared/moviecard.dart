@@ -13,6 +13,7 @@ class moviecard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Container(
+          padding: EdgeInsets.all(10),
           child: Image(
             image: NetworkImage(theMovie.image),
           ),
