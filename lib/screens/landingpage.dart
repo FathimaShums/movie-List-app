@@ -14,7 +14,9 @@ class _theLandingPageState extends State<theLandingPage> {
 
   final List<Movies> MovieList = [
     Movies("Secret Life Of Pets", "Movie about a bunnch of fictional pets",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcLhJZfKMziE5if_GMu-SiF09pSq8XY3KT_g&s")
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcLhJZfKMziE5if_GMu-SiF09pSq8XY3KT_g&s"),
+    Movies("Nut Job", "squirrel likes nuts,has a rat friend",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxTntML6zqjwNZTvFIIJjBVCieAWevLj1KDg&s"),
   ];
 
   VoidCallback AddtotheList(
