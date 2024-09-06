@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weekten/models/Movies.dart';
+import 'package:weekten/shared/favmoviecard.dart';
+import 'package:weekten/shared/moviecard.dart';
 
 class theFavorites extends StatefulWidget {
   const theFavorites({super.key});
@@ -8,16 +11,24 @@ class theFavorites extends StatefulWidget {
 }
 
 class _theFavoritesState extends State<theFavorites> {
+  // // List<Movies> theMovieList = [];
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+
+  // }
+
   @override
   Widget build(BuildContext context) {
-    final movie_list = ModalRoute.of(context)!.settings.arguments as List;
+    final movie_list =
+        ModalRoute.of(context)?.settings.arguments as List<Movies>?;
+
     return Scaffold(
         body: ListView.builder(
-            itemCount: movie_list.length,
+            itemCount: movie_list?.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(movie_list[index].title),
-              );
+              return favmoviecard(favMovie: movie_list![index]);
             }));
   }
 }

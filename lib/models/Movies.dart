@@ -1,22 +1,19 @@
 class Movies {
-  String _title;
-  String _description;
-  String _image;
+  final String title;
+  final String description;
+  final String image;
 
-  Movies(this._title, this._description, this._image);
+  Movies(this.title, this.description, this.image);
 
-  String get title => _title;
-  set title(String title) {
-    _title = title;
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is Movies &&
+        other.title == title &&
+        other.description == description &&
+        other.image == image;
   }
 
-  String get description => _description;
-  set description(String descriptionn) {
-    _description = description;
-  }
-
-  String get image => _image;
-  set image(String image) {
-    _image = image;
-  }
+  @override
+  int get hashCode => title.hashCode ^ description.hashCode ^ image.hashCode;
 }

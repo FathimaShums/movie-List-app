@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weekten/models/Movies.dart';
 
-class moviecard extends StatelessWidget {
-  const moviecard({super.key, required this.onPressed, required this.theMovie});
-  final Movies theMovie;
-
-  final VoidCallback onPressed;
+class favmoviecard extends StatelessWidget {
+  const favmoviecard({super.key, required this.favMovie});
+  final Movies favMovie;
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +13,17 @@ class moviecard extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(10),
           child: Image(
-            image: NetworkImage(theMovie.image),
+            image: NetworkImage(favMovie.image),
           ),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              theMovie.title,
+              favMovie.title,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            Text(theMovie.description),
-            ElevatedButton(
-                onPressed: onPressed, child: Text("Add to favourites"))
+            Text(favMovie.description),
           ],
         )
       ],

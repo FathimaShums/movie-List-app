@@ -13,25 +13,32 @@ class _theLandingPageState extends State<theLandingPage> {
   List<Movies> theMovieList = [];
 
   final List<Movies> MovieList = [
-    Movies("Secret Life Of Pets", "Movie about a bunnch of fictional pets",
+    Movies("Secret Life Of Pets", "Movie about a bunch of fictional pets",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcLhJZfKMziE5if_GMu-SiF09pSq8XY3KT_g&s"),
     Movies("Nut Job", "squirrel likes nuts,has a rat friend",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxTntML6zqjwNZTvFIIJjBVCieAWevLj1KDg&s"),
   ];
 
-  VoidCallback AddtotheList(
-    Movies afavMovie,
-  ) {
+  VoidCallback AddtotheList(Movies afavMovie) {
     return () {
-      setState(() {
+      bool isAlreadyFavorite = theMovieList.contains(afavMovie);
+
+      if (!isAlreadyFavorite) {
         Movies aMovie =
             Movies(afavMovie.title, afavMovie.description, afavMovie.image);
-        theMovieList.add(aMovie); // Action to perform
-      });
+        theMovieList.add(aMovie);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Already added ${afavMovie.title} "),
+          ),
+        );
+      }
     };
   }
 
   void NavigateToViewAllScreen() {
+    print("Size of the List" + theMovieList.length.toString());
     Navigator.pushNamed(context, '/favorites', arguments: theMovieList);
   }
 
